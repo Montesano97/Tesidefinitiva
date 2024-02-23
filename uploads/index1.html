@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrazione Paziente</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Quando il DOM è completamente caricato
+
+        // Aggiungi un gestore di eventi al pulsante di generazione del PDF
+        document.getElementById('generatePdfBtn').addEventListener('click', function () {
+            // Recupera i dati dalla form
+            var nome = document.forms['invio']['nome'].value;
+            var cognome = document.forms['invio']['cognome'].value;
+            var nato = document.forms['invio']['nato'].value;
+            var data = document.forms['invio']['data'].value;
+            var residenza = document.forms['invio']['residenza'].value;
+            var telefono = document.forms['invio']['telefono'].value;
+            var email = document.forms['invio']['email'].value;
+            var password= document.forms['invio']['password'].value;
+
+            // Crea un oggetto jsPDF
+            var pdf = new jsPDF();
+
+            // Aggiungi il contenuto al PDF
+            pdf.text(20, 20, 'Dati Paziente');
+            pdf.text(20, 30, 'Nome: ' + nome);
+            pdf.text(20, 40, 'Cognome: ' + cognome);
+            pdf.text(20, 50, 'Nato/a: ' + nato);
+            pdf.text(20, 60, 'Data di nascita: ' + data);
+            pdf.text(20, 70, 'Residenza: ' + residenza);
+            pdf.text(20, 80, 'Telefono/Cell: ' + telefono);
+            pdf.text(20, 90, 'E-mail: ' + email);
+            pdf.text(20, 100, 'Password: ' + email);
+            // Salva il PDF
+            pdf.save('registro_paziente.pdf');
+        });
+    });
+</script>
+
+
+<body>
+    <h1>REGISTRAZIONE PROFILO PAZIENTE</h1>
+
+    <h1>Login</h1>
+  <form action="/login" method="post">
+    <label for="email">E-mail</E-mail>:</label>
+    <input type="text" id="email" name="email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">Login</button>
+  </form>  
+
+<br>
+    <form name="invio"class="container" method="post" action="/">
+
+        <div class="form-group">
+        <input class="form-control", name="nome",type="text"placeholder="Nome">
+
+        </div>
+
+        <div class="form-group">
+            <input class="form-control", name="cognome",type="text"placeholder="Cognome">
+    
+            </div>
+
+            <div class="form-group">
+                <input class="form-control", name="nato",type="text"placeholder="Nato/a">
+        
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control", name="data",type="text"placeholder="Data di nascita">
+            
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control", name="residenza",type="text"placeholder="Residenza">
+                
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control", name="telefono",type="text"placeholder="Telefono/Cell">
+                    
+                            </div>
+
+                            <div class="form-group">
+                                <input class="form-control", name="email",type="text"placeholder="E-mail">
+                        
+                                </div>
+
+                                <div class="form-group">
+                                    <input class="form-control", name="password",type="text"placeholder="Password">
+                            
+                                    </div>
+
+
+
+    
+
+       
+        <button id="generatePdfBtn">Registrati alla piattaforma e genera pdf</button>
+<a href="mailto:enzomonte2020@gmail.com">Invia una E-mail</a>
+
+<a href="/login">Pagina di Login</a>
+
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Corsi Online</title>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .corso {
+            width: 80%;
+            margin: 10px;
+            text-align: left;
+        }
+
+        .corso h2 {
+            text-align: center;
+        }
+
+        .corso p, .corso iframe {
+            width: 100%;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            const params = new URLSearchParams(window.location.search);
+            const username = params.get('username');
+            
+            if (username) {
+                // Aggiungi il nome utente dove desideri nella tua pagina
+                const welcomeMessage = document.createElement('p');
+                welcomeMessage.textContent = `Benvenuto, ${username}!`;
+                document.body.insertBefore(welcomeMessage, document.body.firstChild);
+            }
+        }
+    </script>
+    <script>
+        // Recupero dei corsi dal server e visualizzazione sulla pagina utente
+        fetch('/corsi')
+          .then(response => response.json())
+          .then(corsi => {
+            const corsiContainer = document.getElementById('corsi-container'); // ID dell'elemento HTML dove visualizzare i corsi
+
+            // Itera sui corsi ricevuti e crea HTML dinamico per ciascun corso
+            corsi.forEach(corso => {
+              const corsoHTML = `
+                <div class="corso">
+                  <h2>${corso.titolo}</h2>
+                  <p>${corso.descrizione}</p>
+                  <p>Istruttore: ${corso.istruttore}</p>
+                  <iframe width="560" height="315" src="${corso.videoURL}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+              `;
+
+              // Aggiungi HTML del corso al contenitore dei corsi
+              corsiContainer.innerHTML += corsoHTML;
+            });
+          })
+          .catch(error => {
+            console.error('Errore durante il recupero dei corsi:', error);
+          });
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/prenotazione.html">Prenotazione</a></li>
+            <li><a href="/domande.html">Richiedi info </a></li>
+            <li><a href="/mode.html">CHAT</a></li>
+        </ul>
+    </nav>
+
+    <h1>Lista dei Corsi</h1>
+    
+    <div id="corsi-container"></div> <!-- Contenitore dei corsi -->
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/HZD0QuA-yWQ?si=XNq183fUG8l8R-fX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</body>
+</html>

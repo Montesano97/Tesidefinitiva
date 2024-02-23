@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Modulo Domande e Risposte</title>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/home.html">Pagina Personale</a></li>
+            <li><a href="/servizi.html">Servizi</a></li>
+            <li><a href="/contatti.html">Contatti</a></li>
+            <li><a href="/mode.html">CHAT</a></li>
+        </ul>
+    </nav>
+
+    <h1>Modulo Domande e Risposte</h1>
+
+    <form action="/submitForm" method="POST">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="domanda1">Domanda 1:</label>
+        <textarea id="domanda1" name="domanda1" rows="4" required></textarea>
+
+        <label for="domanda2">Domanda 2:</label>
+        <textarea id="domanda2" name="domanda2" rows="4" required></textarea>
+
+      
+
+        <button type="submit">Invia</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            
+           
+            <li><a href="/servizi.html">Servizi</a></li>
+            <li><a href="/contatti.html">Contatti</a></li>
+            <li><a href="/mode.html">CHAT</a></li>
+
+        </ul>
+    </nav>
+    <script>
+        window.onload = function () {
+            fetch('/getQuestions')
+                .then(response => response.json())
+                .then(data => {
+                    const questionsContainer = document.getElementById('questions-container');
+    
+                    data.forEach(domanda => {
+                        const questionElement = document.createElement('div');
+                        questionElement.innerHTML = `
+                            <h3>${domanda.nome}</h3>
+                            <p>Domanda 1: ${domanda.domanda1}</p>
+                            <p>Domanda 2: ${domanda.domanda2}</p>
+                            <!-- Aggiungi altri elementi per altre domande -->
+                            <hr>
+                        `;
+    
+                        questionsContainer.appendChild(questionElement);
+                    });
+                })
+                .catch(error => console.error('Errore durante il recupero delle domande:', error));
+        };
+    </script>
+    
+    <!-- Aggiungi questo div dove vuoi visualizzare le domande -->
+    <div id="questions-container"></div>
+
+
+    <h1>Rispondi</h1>
+
+
+
+    <form id="risposteForm">
+        <label for="domandaId">ID della Domanda:</label>
+        <input type="text" id="domandaId" name="domandaId">
+    
+        <label for="risposta">Risposta:</label>
+        <textarea id="risposta" name="risposta"></textarea>
+    
+        <button type="submit">Invia Risposta</button>
+    </form>
+
+
+</body>
+</html>

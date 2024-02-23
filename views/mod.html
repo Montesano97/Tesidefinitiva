@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrazione Avvenuta</title>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            
+            <li><a href="/corsi.html">Corsi</a></li>
+          
+            <li><a href="/login.html">Login</a></li>
+            <li><a href="/servizi.html">Servizi</a></li>
+            <li><a href="/contatti.html">Contatti</a></li>
+        </ul>
+    </nav>
+    
+    <h1>Aggiungi Nuovo Corso</h1>
+
+    <form action="/aggiungi-corso" method="POST">
+      <label for="titolo">Titolo:</label><br>
+      <input type="text" id="titolo" name="titolo" required><br><br>
+  
+      <label for="descrizione">Descrizione:</label><br>
+      <textarea id="descrizione" name="descrizione" rows="4" required></textarea><br><br>
+  
+      <label for="istruttore">Istruttore:</label><br>
+      <input type="text" id="istruttore" name="istruttore" required><br><br>
+  
+      <label for="videoURL">URL Video YouTube:</label><br>
+      <input type="url" id="videoURL" name="videoURL" placeholder="https://www.youtube.com/watch?v=..." required><br><br>
+  
+      <button type="submit">Aggiungi Corso</button>
+    </form>
+</body>
+</html>
