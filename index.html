@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrazione Paziente</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Quando il DOM è completamente caricato
+
+        // Aggiungi un gestore di eventi al pulsante di generazione del PDF
+        document.getElementById('generatePdfBtn').addEventListener('click', function () {
+            // Recupera i dati dalla form
+            var nome = document.forms['invio']['nome'].value;
+            var cognome = document.forms['invio']['cognome'].value;
+            var nato = document.forms['invio']['nato'].value;
+            var data = document.forms['invio']['data'].value;
+            var residenza = document.forms['invio']['residenza'].value;
+            var telefono = document.forms['invio']['telefono'].value;
+            var email = document.forms['invio']['email'].value;
+           
+
+            // Crea un oggetto jsPDF
+            var pdf = new jsPDF();
+
+            // Aggiungi il contenuto al PDF
+            pdf.text(20, 20, 'Dati Paziente');
+            pdf.text(20, 30, 'Nome: ' + nome);
+            pdf.text(20, 40, 'Cognome: ' + cognome);
+            pdf.text(20, 50, 'Nato/a: ' + nato);
+            pdf.text(20, 60, 'Data di nascita: ' + data);
+            pdf.text(20, 70, 'Residenza: ' + residenza);
+            pdf.text(20, 80, 'Telefono/Cell: ' + telefono);
+            pdf.text(20, 90, 'E-mail: ' + email);
+            
+            // Salva il PDF
+            pdf.save('registro_paziente.pdf');
+        });
+    });
+</script>
+
+<link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+
+
+
+
+
+
+
+
+
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .navbar {
+        background-color: #333;
+        overflow: hidden;
+    }
+
+    .navbar a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .content {
+        text-align: center;
+        margin: 0 auto; /* Imposta il margine sinistro e destro su "auto" per centrare il blocco */
+        max-width: 800px; /* Imposta la larghezza massima per migliorare la leggibilità */
+        padding: 20px;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu di Navigazione</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+           
+            <li><a href="/corsi.html">Corsi</a></li>
+            <li><a href="/register.html">Registrazione</a></li>
+            <li><a href="/login.html">Login</a></li>
+            <li><a href="/servizi.html">Servizi</a></li>
+            <li><a href="/contatti.html">Contatti</a></li>
+        </ul>
+    </nav>
+    </nav>
+    </nav>
+    <div class="content">
+        <h1>Benvenuto alla Registrazione in Piattaforma Ospedaliera</h1>
+        <p>La registrazione in una piattaforma ospedaliera è essenziale per garantire un accesso sicuro e personalizzato ai servizi offerti. 
+            Attraverso la registrazione, gli utenti possono accedere a una serie di funzionalità, inclusa la gestione del proprio profilo, 
+            la visualizzazione dei risultati medici personali, la prenotazione online di appuntamenti, e la ricezione di informazioni personalizzate sulla salute.</p>
+        
+        <p>Questo processo consente anche agli operatori sanitari di mantenere un quadro completo delle informazioni sui pazienti, facilitando la fornitura di cure personalizzate e tempestive. 
+            Inoltre, contribuisce a mantenere la sicurezza e la privacy dei dati sensibili dei pazienti.</p>
+        
+        <p>Unisciti a noi per migliorare la tua esperienza sanitaria!</p>
+    </div>
+<body>
+    <h1>REGISTRAZIONE PROFILO PAZIENTE</h1>
+
+   
+    
+
+<br>
+    <form name="invio"class="container" method="post" action="/">
+
+        <div class="form-group">
+        <input class="form-control", name="nome",type="text"placeholder="Nome">
+
+        </div>
+
+        <div class="form-group">
+            <input class="form-control", name="cognome",type="text"placeholder="Cognome">
+    
+            </div>
+
+            <div class="form-group">
+                <input class="form-control", name="nato",type="text"placeholder="Nato/a">
+        
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control", name="data",type="text"placeholder="Data di nascita">
+            
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control", name="residenza",type="text"placeholder="Residenza">
+                
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control", name="telefono",type="text"placeholder="Telefono/Cell">
+                    
+                            </div>
+
+                            <div class="form-group">
+                                <input class="form-control", name="email",type="text"placeholder="E-mail">
+                        
+                                </div>
+
+                              
+                            
+
+    
+
+       
+        <button id="generatePdfBtn">Registrati alla piattaforma</button>
+
+
+       
+
+
+
+
+        <br>
+        <h1>Inserisci un Nome</h1>
+        <form action="/salva-nome" method="post">
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" required>
+          <br>
+          <button type="submit">Salva Nome</button>
+        </form>
+       
+        </div>
+
+    </form>
+</body>
+</html>
+
+
+
+
+
+
